@@ -80,7 +80,7 @@
 				<li><a href="#gallery">Gallery</a></li>
 				<!-- contact link linking to #contact anchor section with the contact form. Link also works as individual button with button css class -->
 				<li><a class="button" href="#contact">Contact</a></li>
-				<!-- -->
+				<!-- javscript defaults to undefined and does not load to a new page from hyperlink reference, icon menu for mobile to prompt mobile menu when clicked on -->
 				<li><a href="javascript:void(0);" class="burger-icon" onclick="mobileMenu()">
 					<!-- Font awesome bars icon definition with i tag -->
 					<i class="fa fa-bars">
@@ -288,23 +288,23 @@
 			<div class="form-column fullwidth">
 				<!-- form tag to create HTML5 form and to validate it with javascript and HTML, there is no screen refresh because of return false when clicking submit
 				Online form creation background reference material from w3schools: https://www.w3schools.com/howto/howto_css_contact_form.asp -->
-				<form name="contactForm" action="" onsubmit="formValidation();return false;" method="post">
+				<form id="contactForm" name="contactForm" action="" onsubmit="formValidation();return false;" method="post">
 				<!-- name label for clarification for the text input field to get user's name -->
-				Name<br>
+				<label>Name*</label><br>
 				<!-- input with the type text to specify field input -->
-				<input type="text" name="name"<br>
+				<input type="text" name="name" id="name" required><br>
 				<!-- phone number label for clarification for the tel input field to get user's phone number -->
-				Phone number<br>
+				<label>Phone number*</label><br>
 				<!-- input with the type tel to specify field input -->
-				<input type="tel" name="phoneNumber"><br>
+				<input type="tel" name="phoneNumber" id="phone" required><br>
 				<!-- Email label for clarification for the tel input field to get user's email -->
-				Email<br>
+				<label>Email*</label><br>
 				<!-- input with the type email to validate with html -->
-				<input type="email" name="email"><br>
+				<input type="email" name="email" id="email" required><br>
 				<!-- Message label for clarification for the textarea input field to get user's message -->
-				Message<br>
+				<label>Message*</label><br>
 				<!-- input with the type email to specify the field input -->
-				<input type="textarea" name="message"><br>
+				<textarea rows="5" cols="50" name="message" id="message" required></textarea><br>
 				<!-- input with type submit to create a submit button for the form -->
 				<input type="submit" value="Submit">
 				<!-- form closing tag -->

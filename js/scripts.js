@@ -1,10 +1,10 @@
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function mobileMenu() {
 	var mobilenav = document.getElementById("topnav");
-	if (mobilenav.className === "nav") {
+	if (mobilenav.className === "nav column-right") {
 		mobilenav.className += " responsive-menu";
 	} else {
-    mobilenav.className = "nav";
+    mobilenav.className = "nav column-right";
 	}
 }
 // defining array to be accessed based on user choice later
@@ -23,9 +23,11 @@ function selfAssessment(clickedButtonId) {
 		document.getElementById("results").innerHTML = selfHelp[2];
 	}
 }
+
+// reference for modal: https://www.w3schools.com/howto/howto_css_modal_images.asp
 // get modal by id imageModal
 var modal = document.getElementById("imageModal");
-// Get the images and insert them one by one inside the modal, depending on which one a user chooses
+// get the images and insert them one by one inside the modal, depending on which one a user chooses
 var imgOne = document.getElementById("imgOne");
 var imgTwo = document.getElementById("imgTwo");
 var imgThree = document.getElementById("imgThree");
@@ -84,27 +86,14 @@ var span = document.getElementsByClassName("closing-button")[0];
 span.onclick = function() {
   modal.style.display = "none";
 }
-// form javascript validation
+// form javascript validation, reference: https://www.w3schools.com/js/js_validation.asp
 var success = document.getElementById("success-message");
 function formValidation() {
-	let nameInput = document.forms["contactForm"]["name"].value;
-	if (nameInput == "") {
-		alert("Name field is required. Plesase enter your name.");
+	if(document.getElementById("name").value == "" || document.getElementById("phone").value == "" || document.getElementById("email").value == "" || document.getElementById("message").value == "") {
 		return false;
 	}
-	let phoneNumberInput = document.forms["contactForm"]["phoneNumber"].value;
-	if (phoneNumberInput == "") {
-		alert("Phone number field is required. Plesase enter your phone number.");
-		return false;
-	}
-	let emailInput = document.forms["contactForm"]["email"].value;
-	if (emailInput == "") {
-		alert("Email field is required. Plesase enter your email.");
-		return false;
-	}
-	let messageInput = document.forms["contactForm"]["message"].value;
-	if (messageInput == "") {
-		alert("Message field is required. Plesase enter your message.");
+	else {
+		success.style.display = "block";
 		return false;
 	}
 }
