@@ -35,7 +35,9 @@
 	<!-- favicon for apple touch devices to be shown for them -->
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<!--  stylesheet definition to load Font awaseome library to show hamburger menu on mobile screens -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<!-- fallback for browsers that do not execute javascript -->
+	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
 	<!-- main css stylesheet in document root's css folder -->
 	<link rel="stylesheet" href="css/styles.css?v=1.0">
 <!-- head closing tag -->
@@ -59,7 +61,13 @@
 			<!-- content area for branding/logo -->
 			<div class="logo-area">
 			<!-- logo image with home section hyperlink -->
-			<a href="#home"><img src="img/healthy-minds-logo.png" alt="Mental health" class="responsive"></a>
+			<a href="#home">
+			<picture>
+				<source type="image/webp" srcset="img/healthy-minds-logo.webp">
+				<source type="image/jpeg" srcset="img/healthy-minds-logo.png">
+				<img src="img/healthy-minds-logo.png" alt="Mental health" class="responsive">
+			</picture>
+			</a>
 			<!-- closing tag for main header -->
 			</div>
 			<!-- navigation div with id topnav to be used with mobile menu showing javascript and additional nav class together with column-right, content alignment defining css class -->
@@ -123,7 +131,11 @@
 			<!-- column class for one third column to be used with css flex and to enhance responsive behavior -->
 			<div class="column">
 				<!-- first service image -->
-				<img src="img/face-to-face-counselling-dublin.jpg" alt="Face to face counselling" class="responsive">
+				<picture>
+					<source type="image/webp" srcset="img/face-to-face-counselling-dublin.webp">
+					<source type="image/jpeg" srcset="img/face-to-face-counselling-dublin.jpg">
+					<img src="img/face-to-face-counselling-dublin.jpg" alt="Face to face counselling" class="responsive">
+				</picture>
 				<!-- h3 title tag for the first service (face to face counselling) -->
 				<h3>Face to face counselling</h3>
 				<!-- paragraph telling more about the service -->
@@ -136,7 +148,11 @@
 			<!-- column class for one third column to be used with css flex -->
 			<div class="column">
 				<!-- second service image -->
-				<img src="img/online-counselling.jpg" alt="Online counselling" class="responsive">
+				<picture>
+					<source type="image/webp" srcset="img/online-counselling.webp">
+					<source type="image/jpeg" srcset="img/online-counselling.jpg">
+					<img src="img/online-counselling.jpg" alt="Online counselling" class="responsive">
+				</picture>
 				<!-- h3 title tag for the second service (online counselling) -->
 				<h3>Online counselling</h3>
 				<!-- paragraph telling more about the service -->
@@ -148,7 +164,11 @@
 			</div>
 			<!-- column class for one third column to be used with css flex -->
 			<div class="column">
-				<img src="img/quick-self-assessment.jpg" alt="Quick self assessment" class="responsive">
+				<picture>
+					<source type="image/webp" srcset="img/quick-self-assessment.webp">
+					<source type="image/jpeg" srcset="img/quick-self-assessment.jpg">
+					<img src="img/quick-self-assessment.jpg" alt="Quick self assessment" class="responsive">
+				</picture>
 				<h3>Quick self-assessment</h3>
 				<p class="counselling-text last">How often have you had suicidal thoughts on the last month?</p><br>
 				<span id="optionOne" onclick="selfAssessment(this.id)" class="small button">Not at all</span><br>
@@ -175,21 +195,53 @@
 			<!-- div with class gallery-grid to define thumbnail modal gallery with eight images, customised and using w3schools.com tutorial as reference: https://www.w3schools.com/howto/howto_css_modal_images.asp -->
 			<div class="gallery-grid">
 				<!-- modal trigger image 1 -->
-				<img id="imgOne" src="img/couples-counselling-face-to-face-session.jpg" alt="Couples counselling, face to face session" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/couples-counselling-face-to-face-session.webp">
+					<source type="image/jpeg" srcset="img/couples-counselling-face-to-face-session.jpg">
+					<img id="imgOne" src="img/couples-counselling-face-to-face-session.jpg" alt="Couples counselling, face to face session" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 2 -->
-				<img id="imgTwo" src="img/happy-couple-after-therapy.jpg" alt="Happy couple after therapy" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/happy-couple-after-therapy.webp">
+					<source type="image/jpeg" srcset="img/happy-couple-after-therapy.jpg">
+					<img id="imgTwo" src="img/happy-couple-after-therapy.jpg" alt="Happy couple after therapy" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 3 -->
-				<img id="imgThree" src="img/married-couple-counselling.jpg" alt="Married couple counselling" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/married-couple-counselling.webp">
+					<source type="image/jpeg" srcset="img/married-couple-counselling.jpg">
+					<img id="imgThree" src="img/married-couple-counselling.jpg" alt="Married couple counselling" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 4 -->
-				<img id="imgFour" src="img/help-in-daily-life.jpg" alt="Help in daily life" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/help-in-daily-life.webp">
+					<source type="image/jpeg" srcset="img/help-in-daily-life.jpg">
+					<img id="imgFour" src="img/help-in-daily-life.jpg" alt="Help in daily life" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 5 -->
-				<img id="imgFive" src="img/healthy-mind-healthy-body.jpg" alt="Healthy mind, healthy body" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/healthy-mind-healthy-body.webp">
+					<source type="image/jpeg" srcset="img/healthy-mind-healthy-body.jpg">
+					<img id="imgFive" src="img/healthy-mind-healthy-body.jpg" alt="Healthy mind, healthy body" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 6 -->
-				<img id="imgSix" src="img/mistakes-are-proof-you-are-trying.jpg" alt="Mistakes are proof you are trying" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/mistakes-are-proof-you-are-trying.webp">
+					<source type="image/jpeg" srcset="img/mistakes-are-proof-you-are-trying.jpg">
+					<img id="imgSix" src="img/mistakes-are-proof-you-are-trying.jpg" alt="Mistakes are proof you are trying" class="responsive-gallery">
+				</picture>
 				<!-- modal trigger image 7 -->
-				<img id="imgSeven" src="img/we-can-help-your-anxiety.jpg" alt="We ccan help your anxiety" class="responsive-gallery">		
+				<picture>
+					<source type="image/webp" srcset="img/we-can-help-your-anxiety.webp">
+					<source type="image/jpeg" srcset="img/we-can-help-your-anxiety.jpg">
+					<img id="imgSeven" src="img/we-can-help-your-anxiety.jpg" alt="We ccan help your anxiety" class="responsive-gallery">
+				</picture>		
 				<!-- modal trigger image 8 -->
-				<img id="imgEight" src="img/positive-morning-thoughts.jpg" alt="Positive morning thoughts" class="responsive-gallery">
+				<picture>
+					<source type="image/webp" srcset="img/positive-morning-thoughts.webp">
+					<source type="image/jpeg" srcset="img/positive-morning-thoughts.jpg">
+					<img id="imgEight" src="img/positive-morning-thoughts.jpg" alt="Positive morning thoughts" class="responsive-gallery">
+				</picture>	
 			<!-- closing tag for gallery grid -->
 			</div>
 			<!-- modal div to be displayed when a user clicks any of the modal divs with ids from imgOne to imgEight -->
